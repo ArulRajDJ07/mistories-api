@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mi_users",
+  "info": {
+    "singularName": "mi-user",
+    "pluralName": "mi-users",
+    "displayName": "MiUser",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_id": {
+      "type": "uid"
+    },
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string",
+      "required": true
+    },
+    "display_name": {
+      "type": "string",
+      "required": true
+    },
+    "UserType": {
+      "type": "enumeration",
+      "enum": [
+        "Admin",
+        "Author",
+        "Reader"
+      ],
+      "default": "Reader",
+      "required": true
+    },
+    "rating": {
+      "max": 5,
+      "min": 0,
+      "type": "integer"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false,
+      "private": true
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "user_preference": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-preference.user-preference",
+      "inversedBy": "mi_user"
+    },
+    "mi_shelves": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mi-shelf.mi-shelf",
+      "mappedBy": "mi_user"
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "password",
+      "required": true,
+      "maxLength": 18,
+      "minLength": 8
+    }
+  }
+}

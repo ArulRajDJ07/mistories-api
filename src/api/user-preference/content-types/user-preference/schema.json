@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_preferences",
+  "info": {
+    "singularName": "user-preference",
+    "pluralName": "user-preferences",
+    "displayName": "UserPreference"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "userPreferenceId": {
+      "type": "uid"
+    },
+    "mi_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mi-user.mi-user",
+      "mappedBy": "user_preference"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

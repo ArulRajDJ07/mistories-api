@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "story_version_histories",
+  "info": {
+    "singularName": "story-version-history",
+    "pluralName": "story-version-histories",
+    "displayName": "StoryVersionHistory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "version_history_id": {
+      "type": "uid"
+    },
+    "story": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::story.story"
+    },
+    "old_content": {
+      "type": "richtext"
+    },
+    "new_content": {
+      "type": "richtext"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "changed_by": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mi-user.mi-user"
+    }
+  }
+}

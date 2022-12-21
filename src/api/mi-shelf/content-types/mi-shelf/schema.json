@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mi_shelves",
+  "info": {
+    "singularName": "mi-shelf",
+    "pluralName": "mi-shelves",
+    "displayName": "MiShelf"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mishelf_id": {
+      "type": "uid"
+    },
+    "mi_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mi-user.mi-user",
+      "inversedBy": "mi_shelves"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true,
+      "private": true
+    },
+    "mi_shelf_stories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mi-shelf-story.mi-shelf-story",
+      "mappedBy": "mi_shelf"
+    }
+  }
+}

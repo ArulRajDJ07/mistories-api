@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mi_shelf_stories",
+  "info": {
+    "singularName": "mi-shelf-story",
+    "pluralName": "mi-shelf-stories",
+    "displayName": "MiShelfStory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mishelf_story_id": {
+      "type": "uid"
+    },
+    "mi_shelf": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mi-shelf.mi-shelf",
+      "inversedBy": "mi_shelf_stories"
+    },
+    "read_later": {
+      "type": "boolean",
+      "default": false
+    },
+    "in_progress": {
+      "type": "boolean",
+      "default": false
+    },
+    "published": {
+      "type": "boolean",
+      "default": false
+    },
+    "active": {
+      "type": "boolean",
+      "default": true,
+      "private": true
+    },
+    "story": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::story.story"
+    }
+  }
+}

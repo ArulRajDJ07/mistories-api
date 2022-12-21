@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stories",
+  "info": {
+    "singularName": "story",
+    "pluralName": "stories",
+    "displayName": "Story"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "story_id": {
+      "type": "uid"
+    },
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "short_description": {
+      "type": "text",
+      "required": false
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "view_count": {
+      "type": "biginteger",
+      "min": "0",
+      "default": "0"
+    },
+    "created_date": {
+      "type": "datetime"
+    },
+    "updated_date": {
+      "type": "datetime"
+    },
+    "story_state": {
+      "type": "enumeration",
+      "enum": [
+        "Draft",
+        "Approved",
+        "Published"
+      ],
+      "default": "Draft"
+    },
+    "trending": {
+      "type": "boolean",
+      "default": false
+    },
+    "story_author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mi-user.mi-user"
+    },
+    "approved_by": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mi-user.mi-user"
+    },
+    "last_approved_date": {
+      "type": "datetime"
+    },
+    "published_date": {
+      "type": "datetime"
+    }
+  }
+}
